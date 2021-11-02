@@ -8,11 +8,11 @@ module.exports = {
   mode: "development",
   devServer: {
     static: path.join(__dirname, "dist"),
-    port: 3000,
+    port: 8001,
   },
   output: {
     // change to production location of container
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:8001/",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
