@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//@ts-ignore
+const NavigationBar = React.lazy(() => import("navbar/NavigationBar"));
+//@ts-ignore
+const Header = React.lazy(() => import("header/Header"));
+let EventBus: any = null;
 
-function App() {
+export default () => {
+  React.useEffect(() => {
+    //@ts-ignore
+    import("header/EventBus").then((obj) => {
+      EventBus = obj.default;
+      EventBus.subscribe("NavigationSelectEvent", (data: any) => {
+        alert("NavigationSelectEvent: " + data);
+      });
+      EventBus.subscribe("AppBarSelectEvent", (data: any) => {
+        alert("AppBarSelectEvent: " + data);
+      });
+    });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <React.Suspense fallback="Loading header...">
+        <Header />
+      </React.Suspense>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <React.Suspense fallback="Loading navBar">
+          <NavigationBar />
+        </React.Suspense>
+        <React.Suspense fallback="Loading content...">
+          <div>Content...</div>
+        </React.Suspense>
+      </div>
     </div>
   );
-}
-
-export default App;
+};
