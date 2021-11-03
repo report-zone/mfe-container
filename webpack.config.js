@@ -33,6 +33,8 @@ module.exports = {
       remotes: {
         navbar: "navbar",
         header: "header",
+        groups: "groups",
+        users: "users",
       },
       shared: {
         ...deps,
