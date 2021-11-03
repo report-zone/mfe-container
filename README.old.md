@@ -1,2 +1,0 @@
-# mfe-container
-Microfrontend Container
