@@ -8,7 +8,7 @@ Main container App which hold 4 MFEs
 - mfe-content-1
 - mfe-content-2
 
-![The San Juan Mountains are beautiful!](./Architecture.Png "High Level Architecture")
+![Architecture Image](./Architecture.png "High Level Architecture")
 
 ### TODO
 
