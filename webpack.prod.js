@@ -6,13 +6,6 @@ const deps = require("./package.json").dependencies;
 module.exports = {
   entry: "./src/index.ts",
   mode: "production",
-  devServer: {
-    static: path.join(__dirname, "dist"),
-    port: 3000,
-  },
-  output: {
-    publicPath: "http://localhost:3000/",
-  },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
@@ -32,6 +25,8 @@ module.exports = {
       remotes: {
         navbar: "navbar",
         header: "header",
+        groups: "groups",
+        users: "users",
       },
       shared: {
         ...deps,
@@ -50,7 +45,8 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.prod.html",
+      template: "./public/index.html",
     }),
   ],
+  performance: { hints: false }
 };
