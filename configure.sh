@@ -21,6 +21,7 @@ cat <<EOT >> ./public/index.html
     <script src="http://header.${DOMAIN}/headerRemoteEntry.js"></script>
     <script src="http://content-1.${DOMAIN}/groupsRemoteEntry.js"></script>
     <script src="http://content-2.${DOMAIN}/usersRemoteEntry.js"></script>
+    <script src="http://content-nested.${DOMAIN}/visualizationRemoteEntry.js"></script>
 
     <title>MicrofrontEnd Container</title>
   </head>

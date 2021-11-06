@@ -35,6 +35,7 @@ module.exports = {
         header: "header",
         groups: "groups",
         users: "users",
+        visualization: "uservisualizations",
       },
       shared: {
         ...deps,
